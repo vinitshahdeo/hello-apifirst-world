@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Hello API-first world'
+servers:
+  - url: 'localhost:3000'
+paths:
+  /greeting:
+    get:
+      summary: 'Greet the user'
+      operationId: greetUser
+      tags:
+        - user
+      responses:
+        '200':
+          description: 'A basic greeting'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                    - message
+                properties:
+                    message:
+                        type: string
+                        maxLength: 200
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                    - message
+                properties:
+                    message:
+                        type: string
